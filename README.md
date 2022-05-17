@@ -1,13 +1,31 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## prerequisites
+1. nodejs > v16.13.1
+2. npm >= 8.1.2
+3. yarn >= 1.22.17
+4. [commitizen](https://github.com/commitizen/cz-cli)
+
 ## Getting Started
 
-First, run the development server:
-
+First Install all the packages:
+```bash
+npm run init
+```
+Second, run the development server:
 ```bash
 npm run dev
-# or
-yarn dev
+```
+
+## Test
+
+Start the end-to-end test runner by:
+```bash
+npm run test:e2e
+```
+Check the components with:
+```bash
+npm run storybook
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

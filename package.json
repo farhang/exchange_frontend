@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "init": "yarn",
     "test:e2e": "playwright test",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
