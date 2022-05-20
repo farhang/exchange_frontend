@@ -3,4 +3,3 @@
 
 npm run build
 npm run type-check
-npm run prettier-write
