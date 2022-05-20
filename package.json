@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "postinit": "husky install",
+    "postinit": "husky install  && npx playwright install --with-deps",
     "init": "yarn && npm run postinit",
     "test:e2e": "playwright test",
     "lint": "next lint",
