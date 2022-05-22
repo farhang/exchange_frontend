@@ -10,10 +10,9 @@
     "init": "yarn && npm run postinit",
     "test:e2e": "playwright test",
     "lint": "next lint",
-    "type-check": "yarn tsc --noEmit",
-    "prettier-write": "yarn prettier --write .",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepare": "husky install"
   },
   "dependencies": {
     "next": "12.1.6",
@@ -43,6 +42,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-storybook": "^0.5.11",
     "husky": "^8.0.1",
+    "lint-staged": ">=10",
     "postcss": "^7",
     "prettier": "^2.6.2",
     "sass": "^1.51.0",
@@ -57,5 +57,9 @@
   },
   "resolutions": {
     "webpack": "^5"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "next lint",
+    "*.{js,jsx,ts,tsx,md,html,css,scss}": "prettier --write"
   }
 }
