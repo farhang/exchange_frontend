@@ -60,18 +60,10 @@ export default function Verify() {
     { manual: true }
   )
 
-  useEffect(() => {
-    if (router?.query?.email) {
-      console.log('email set to ', router?.query?.email)
-      getUserVerificationCode().then((res) => {
-        alert(res.data.data)
-      })
-    }
-  }, [router])
-
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
@@ -80,6 +72,16 @@ export default function Verify() {
       email: null,
     },
   })
+
+  useEffect(() => {
+    if (router?.query?.email) {
+      console.log('email set to ', router?.query?.email)
+      getUserVerificationCode().then((res) => {
+        setValue('code', res.data.data)
+      })
+    }
+  }, [router])
+
   const onSubmit = (data: any) => {
     console.log('data', data)
     setUserVerificationCode({ data: data }).then((res) => {
@@ -151,12 +153,9 @@ export default function Verify() {
                 width={'full'}
                 colorScheme={'indigo'}
               >
-                Sign in
+                Verify Account
               </Button>
             </form>
-            <Text mt={8} size={'3xs'} color={'gray.500'}>
-              <Link href={'/forget-password'}>Forgotten your password?</Link>
-            </Text>
           </Box>
           <Box
             alignItems={'start'}
