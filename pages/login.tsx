@@ -1,7 +1,6 @@
 import {
   Box,
   Button,
-  Checkbox,
   Container,
   FormControl,
   FormErrorMessage,
@@ -20,8 +19,6 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useAxios from 'axios-hooks'
-import Link from 'next/link'
-import route from 'color-convert/route'
 import { useRouter } from 'next/router'
 
 const schema = yup.object({
@@ -31,7 +28,7 @@ const schema = yup.object({
 
 export default function Login() {
   const router = useRouter()
-  const [{ data, loading, error }, loginUser] = useAxios(
+  const [{ loading }, loginUser] = useAxios(
     {
       url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth/login`,
       method: 'POST',
@@ -73,11 +70,9 @@ export default function Login() {
                   Email
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineMail />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineMail />
+                  </InputLeftElement>
                   <Input
                     {...login('email')}
                     type="email"
@@ -94,11 +89,9 @@ export default function Login() {
                   Password
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineMail />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineMail />
+                  </InputLeftElement>
                   <Input
                     {...login('password')}
                     type="password"
