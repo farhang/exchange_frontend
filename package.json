@@ -71,7 +71,6 @@
     "webpack": "^5"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "next lint",
     "*.{js,jsx,ts,tsx,md,html,css,scss}": "prettier --write"
   }
 }

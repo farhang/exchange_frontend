@@ -25,7 +25,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const schema = yup.object({
-  email: yup.string().email(),
   code: yup.number().required().min(6),
 })
 
@@ -112,7 +111,7 @@ export default function Verify() {
               <FormControl
                 display={'none'}
                 mb={4}
-                isInvalid={!!errors.email?.message}
+                isInvalid={errors.email?.message}
               >
                 <Input
                   disabled
@@ -122,7 +121,7 @@ export default function Verify() {
                 />
               </FormControl>
 
-              <FormControl mb={4} isInvalid={!!errors.code?.message}>
+              <FormControl mb={4} isInvalid={errors.code?.message}>
                 <FormLabel mb={1} htmlFor="code">
                   Verification code
                 </FormLabel>
