@@ -25,7 +25,6 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 const schema = yup.object({
-  email: yup.string().email(),
   code: yup.number().required().min(6),
 })
 
