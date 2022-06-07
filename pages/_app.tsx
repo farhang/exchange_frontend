@@ -3,11 +3,7 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { IconContext } from 'react-icons'
 import Fonts from '../fonts'
-
-import { extendTheme } from '@chakra-ui/react'
 import { chakraConfig } from '../chakra.config'
-
-// 2. Call `extendTheme` and pass your custom values
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -100,11 +100,9 @@ export default function Register() {
                   Email
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineMail />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineMail />
+                  </InputLeftElement>
                   <Input
                     autoComplete={'email'}
                     {...register('email')}
@@ -122,11 +120,9 @@ export default function Register() {
                   Password
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineMail />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineMail />
+                  </InputLeftElement>
                   <Input
                     autoComplete={'new-password'}
                     {...register('password')}
@@ -146,11 +142,9 @@ export default function Register() {
                   Confirm password
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineMail />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineMail />
+                  </InputLeftElement>
                   <Input
                     autoComplete={'new-password'}
                     {...register('confirm_password')}

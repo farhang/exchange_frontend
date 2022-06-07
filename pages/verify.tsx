@@ -127,11 +127,9 @@ export default function Verify() {
                   Verification code
                 </FormLabel>
                 <InputGroup>
-                  <InputLeftElement
-                    color="gray.500"
-                    pointerEvents="none"
-                    children={<HiOutlineInformationCircle />}
-                  />
+                  <InputLeftElement color="gray.500" pointerEvents="none">
+                    <HiOutlineInformationCircle />
+                  </InputLeftElement>
                   <Input
                     {...register('code')}
                     type="number"
