@@ -1,11 +1,6 @@
-import Link from 'next/link'
+import React from 'react'
+import Register from './register'
 
 export default function Home() {
-  return (
-    <nav>
-      <Link href="/about">
-        <a>About Page</a>
-      </Link>
-    </nav>
-  )
+  return <Register />
 }

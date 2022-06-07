@@ -1,4 +1,5 @@
 // .storybook/preview.js
+import { chakraConfig } from '../chakra.config';
 
 import '../src/styles/globals.scss';
 import * as NextImage from 'next/image';
@@ -20,5 +21,8 @@ export const parameters = {
   },
   previewTabs: {
     'storybook/docs/panel': { index: -1 },
+  },
+  chakra: {
+    theme: chakraConfig,
   },
 };
