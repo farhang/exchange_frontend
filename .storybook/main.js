@@ -23,6 +23,9 @@ module.exports = {
       },
     },
   ],
+  features: {
+    emotionAlias: false,
+  },
   core: {
     builder: 'webpack5',
   },
