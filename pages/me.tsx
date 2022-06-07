@@ -47,7 +47,11 @@ export default function Login() {
     <>
       <Container maxW={'7xl'} paddingX={6} paddingY={4}>
         User{' '}
-        <Text fontFamily={'Yekan Bakh Phinix Bold'} display={'inline-block'}>
+        <Text
+          id={'greeting'}
+          fontFamily={'Yekan Bakh Phinix Bold'}
+          display={'inline-block'}
+        >
           {data?.email}{' '}
         </Text>{' '}
         successfully verified and logged in.
