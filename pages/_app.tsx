@@ -5,7 +5,7 @@ import { IconContext } from 'react-icons'
 import Fonts from '../fonts'
 import { chakraConfig } from '../chakra.config'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <IconContext.Provider value={{ className: 'shared-class', size: '20px' }}>
       <ChakraProvider theme={chakraConfig}>
@@ -16,4 +16,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default App

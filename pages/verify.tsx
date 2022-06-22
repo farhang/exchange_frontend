@@ -15,7 +15,7 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiOutlineInformationCircle } from 'react-icons/hi'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
@@ -29,6 +29,7 @@ const schema = yup.object({
 })
 
 export default function Verify() {
+  const [email, setEmail] = useState('')
   const router = useRouter()
   const [
     {
@@ -39,7 +40,7 @@ export default function Verify() {
     setUserVerificationCode,
   ] = useAxios(
     {
-      url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/emails/${router?.query?.email}/verification`,
+      url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/emails/${router?.query?.email}/verify`,
       method: 'PATCH',
     },
     { manual: true }
@@ -54,7 +55,7 @@ export default function Verify() {
     getUserVerificationCode,
   ] = useAxios(
     {
-      url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/emails/${router?.query?.email}/verification`,
+      url: `${process.env.NEXT_PUBLIC_API_BASE_URL}/emails/${router?.query?.email}/send-verification-code`,
       method: 'POST',
     },
     { manual: true }
@@ -76,11 +77,21 @@ export default function Verify() {
   useEffect(() => {
     if (router?.query?.email) {
       console.log('email set to ', router?.query?.email)
+      if (email === '') {
+        console.log('email going to set')
+        setEmail(router?.query?.email + '')
+      }
+    }
+  }, [router])
+
+  useEffect(() => {
+    if (email !== '') {
+      console.log('get user veri')
       getUserVerificationCode().then((res) => {
         setValue('code', res.data.data)
       })
     }
-  }, [router])
+  }, [email])
 
   const onSubmit = (data: any) => {
     console.log('data', data)
@@ -119,6 +130,7 @@ export default function Verify() {
                   disabled
                   {...register('email')}
                   type="hidden"
+                  className={'email'}
                   placeholder="youremail@provider.com"
                 />
               </FormControl>
@@ -135,6 +147,7 @@ export default function Verify() {
                     {...register('code')}
                     type="number"
                     maxLength={6}
+                    className={'code'}
                     placeholder="Enter 6 Digits code here"
                   />
                 </InputGroup>
@@ -148,6 +161,7 @@ export default function Verify() {
                   setUserVerificationCodeLoading ||
                   getUserVerificationCodeLoading
                 }
+                className={'verify'}
                 type={'submit'}
                 mt={4}
                 width={'full'}
