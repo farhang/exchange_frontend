@@ -4,6 +4,9 @@ const config: PlaywrightTestConfig = {
     baseURL:
       process.env.PLAYWRIGHT_TEST_BASE_URL ||
       'https://exchange-frontend-ifarhang.vercel.app/',
+    launchOptions: {
+      slowMo: 50,
+    },
   },
 }
 

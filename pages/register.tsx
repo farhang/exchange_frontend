@@ -15,7 +15,11 @@ import {
   Text,
 } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { HiOutlineMail } from 'react-icons/hi'
+import {
+  HiLockClosed,
+  HiOutlineLockClosed,
+  HiOutlineMail,
+} from 'react-icons/hi'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -107,6 +111,7 @@ export default function Register() {
                     autoComplete={'email'}
                     {...register('email')}
                     type="email"
+                    className={'email'}
                     placeholder="youremail@provider.com"
                   />
                 </InputGroup>
@@ -121,12 +126,13 @@ export default function Register() {
                 </FormLabel>
                 <InputGroup>
                   <InputLeftElement color="gray.500" pointerEvents="none">
-                    <HiOutlineMail />
+                    <HiOutlineLockClosed />
                   </InputLeftElement>
                   <Input
                     autoComplete={'new-password'}
                     {...register('password')}
                     type="password"
+                    className={'password'}
                     placeholder="Password"
                   />
                 </InputGroup>
@@ -143,12 +149,13 @@ export default function Register() {
                 </FormLabel>
                 <InputGroup>
                   <InputLeftElement color="gray.500" pointerEvents="none">
-                    <HiOutlineMail />
+                    <HiOutlineLockClosed />
                   </InputLeftElement>
                   <Input
                     autoComplete={'new-password'}
                     {...register('confirm_password')}
                     type="password"
+                    className={'confirm-password'}
                     placeholder="Confirm password"
                   />
                 </InputGroup>
@@ -165,6 +172,7 @@ export default function Register() {
                 mt={4}
                 width={'full'}
                 colorScheme={'indigo'}
+                className={'register'}
               >
                 Sign up
               </Button>

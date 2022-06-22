@@ -14,16 +14,17 @@ import {
   Text,
 } from '@chakra-ui/react'
 import React from 'react'
-import { HiOutlineMail } from 'react-icons/hi'
+import { HiOutlineLockClosed, HiOutlineMail } from 'react-icons/hi'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import useAxios from 'axios-hooks'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 const schema = yup.object({
   email: yup.string().email().required(),
-  password: yup.string().required(),
+  password: yup.string().required().min(10),
 })
 
 export default function Login() {
@@ -76,6 +77,7 @@ export default function Login() {
                   <Input
                     {...login('email')}
                     type="email"
+                    className={'email'}
                     placeholder="youremail@provider.com"
                   />
                 </InputGroup>
@@ -90,11 +92,12 @@ export default function Login() {
                 </FormLabel>
                 <InputGroup>
                   <InputLeftElement color="gray.500" pointerEvents="none">
-                    <HiOutlineMail />
+                    <HiOutlineLockClosed />
                   </InputLeftElement>
                   <Input
                     {...login('password')}
                     type="password"
+                    className={'password'}
                     placeholder="Password"
                   />
                 </InputGroup>
@@ -108,6 +111,7 @@ export default function Login() {
               <Button
                 isLoading={loading}
                 type={'submit'}
+                className={'login'}
                 mt={4}
                 width={'full'}
                 colorScheme={'indigo'}
@@ -115,6 +119,12 @@ export default function Login() {
                 Sign in
               </Button>
             </form>
+            <Text mt={8} size={'3xs'}>
+              <Link href={'/forget-password'}>Forget Your password</Link>
+            </Text>
+            <Text mt={2} size={'3xs'}>
+              <Link href={'/register'}>Register</Link>
+            </Text>
           </Box>
           <Box
             alignItems={'start'}
